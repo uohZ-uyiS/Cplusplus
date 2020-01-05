@@ -1,0 +1,41 @@
+
+
+main(){
+	read one line from input File, store the data into lineString
+	p pointer to the first char of lineString // p will pointer to different char later
+
+	while( *p != the end of file){
+		parse the p by Query(), if p point to the end of the current lineString, then p will be pointer the the start of next line, Pointer() works for this
+		after Query(), p will pointer to to the next new char which haven't been parsed in JQuery()
+	}
+}
+
+JQuery(){
+	when *p is '{'
+		move to next char, push '.' into the vector of path, detect whether this is start char of Key, if yes, get the key and push key into the vectot of path, move to the next char
+	when *p is '['
+		move to the next char
+		push '[]' into the vector of path,update the index of [] later
+	when *p is ':'
+		move to the next char
+		if current char is the start of value, get the value, move the pointer to the end of the value
+			-- if the value is "key":"test, test", "key":true
+			-- if the value is "key":[[2,3],[4,6]],"key":["ac","ab"]
+			-- if the value is "key":[]
+			-- if the value id "key":{ }
+		push ':' into the vector of path, till now, got the full path and value
+		call the matchQuery() to check whether this path satifies the query
+		call checkparent() to see whether this key-value is the last element for the upper level, if yes, modify the vector of path
+	when *p is ','
+		move to next char, detect whether this is start char of Key, if yes,do the operation 
+	when *p is other char
+		move to next char, detect whether this is start char of Key, if yes,do the operation 
+
+	return
+}
+
+matchQuery(){
+	update the index of [] in the path
+	pop the Key and ':' in the vector of the path, so the remaining vector could be used for next path, if the next path is at the same level of the current one
+	if current path is satisfied the query, the key value will print out
+}

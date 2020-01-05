@@ -1,0 +1,23 @@
+{
+    "routes": [ {
+        "steps": [
+            {
+                "loc": {
+                    "lat": [],
+                    "lng": -107,
+                    "new": null
+                },
+                "dis": {
+                    "text": "92 ft",
+                    "value": [6,4]
+                }
+            },
+            {
+                "loc": {
+                    "lat": true,
+                    "lng": -106
+                }
+            }
+        ] }
+    ]
+}
